@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ОГЭ Английский язык, вариант 8</title>
+  <style>
+    :root{
+      --sea:#00a8cc;
+      --deep:#03506f;
+      --navy:#023047;
+      --sand:#fff3cf;
+      --coral:#ff7b73;
+      --yellow:#ffd166;
+      --foam:#e8fbff;
+      --white:#ffffff;
+      --green:#2ec4b6;
+      --shadow:0 16px 35px rgba(0,79,112,.18);
+      --radius:22px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: "Trebuchet MS", Arial, sans-serif;
+      color:var(--navy);
+      background:
+        radial-gradient(circle at 12% 8%, rgba(255,255,255,.9) 0 4px, transparent 5px),
+        radial-gradient(circle at 92% 22%, rgba(255,255,255,.7) 0 8px, transparent 9px),
+        linear-gradient(180deg, #45d6ff 0%, #bdf5ff 34%, #f9ffff 68%, #fff6dc 100%);
+      min-height:100vh;
+    }
+    .hero{
+      position:relative;
+      overflow:hidden;
+      padding:42px 20px 86px;
+      text-align:center;
+      color:white;
+      background:
+        linear-gradient(135deg, rgba(0,130,170,.96), rgba(0,184,217,.86)),
+        radial-gradient(circle at 75% 20%, rgba(255,255,255,.35), transparent 24%);
+    }
+    .hero:after{
+      content:"";
+      position:absolute;
+      left:-5%; right:-5%; bottom:-2px; height:88px;
+      background:
+        radial-gradient(60px 42px at 50px 42px, #f9ffff 58%, transparent 60%) 0 0 / 120px 72px repeat-x;
+      opacity:.98;
+    }
+    .hero h1{margin:0 0 10px;font-size:clamp(30px,5vw,56px);letter-spacing:.5px;text-shadow:0 4px 16px rgba(0,0,0,.22)}
+    .hero p{margin:8px auto 0;max-width:850px;font-size:clamp(16px,2.3vw,22px);line-height:1.45}
+    .shell{max-width:1150px;margin:-42px auto 70px;padding:0 18px;position:relative;z-index:2}
+    .top-card{
+      background:rgba(255,255,255,.92);
+      border:2px solid rgba(255,255,255,.9);
+      border-radius:var(--radius);
+      padding:22px;
+      box-shadow:var(--shadow);
+      backdrop-filter: blur(6px);
+      margin-bottom:22px;
+    }
+    .audio-box{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:12px;
+      align-items:center;
+      padding:18px;
+      border-radius:20px;
+      background:linear-gradient(135deg, #fff7d6, #e8fbff);
+      border:2px dashed rgba(0,168,204,.45);
+    }
+    audio{width:100%;height:42px}
+    .nav{
+      display:flex;flex-wrap:wrap;gap:10px;margin-top:14px
+    }
+    .nav a, .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      border:0;border-radius:999px;
+      padding:11px 16px;
+      background:linear-gradient(135deg, var(--sea), var(--green));
+      color:white;text-decoration:none;font-weight:800;cursor:pointer;
+      box-shadow:0 8px 16px rgba(0,126,161,.22);
+      transition:.2s ease;
+    }
+    .nav a:hover,.btn:hover{transform:translateY(-2px);filter:saturate(1.08)}
+    .btn.secondary{background:linear-gradient(135deg,#ff9f7f,var(--coral))}
+    .btn.light{background:white;color:var(--deep);border:2px solid rgba(0,168,204,.35)}
+    section{
+      background:rgba(255,255,255,.94);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      margin:22px 0;
+      padding:24px;
+      border:1px solid rgba(0,168,204,.18);
+      position:relative;
+      overflow:hidden;
+    }
+    section:before{
+      content:"";position:absolute;right:-38px;top:-38px;width:150px;height:150px;border-radius:50%;
+      background:radial-gradient(circle, rgba(0,168,204,.16), transparent 68%);
+    }
+    h2{margin:0 0 16px;color:var(--deep);font-size:30px;display:flex;gap:10px;align-items:center}
+    h3{margin:22px 0 10px;color:#006d8f;font-size:22px}
+    .note{
+      background:linear-gradient(135deg,#e8fbff,#fff8da);
+      border-left:8px solid var(--yellow);
+      padding:14px 16px;
+      border-radius:16px;
+      line-height:1.45;
+      margin:12px 0 18px;
+    }
+    .task{
+      border:1px solid rgba(0,168,204,.18);
+      background:#ffffff;
+      border-radius:18px;
+      padding:16px;
+      margin:14px 0;
+      box-shadow:0 8px 18px rgba(3,80,111,.07);
+    }
+    .task-head{display:flex;align-items:center;gap:10px;margin-bottom:10px;font-weight:900;color:var(--deep)}
+    .num{min-width:34px;height:34px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:var(--yellow);color:#704b00;font-weight:900}
+    label{display:block;margin:8px 0;line-height:1.35;cursor:pointer}
+    input[type="radio"]{transform:scale(1.18);margin-right:8px;accent-color:var(--sea)}
+    input[type="text"], select, textarea{
+      width:100%;border:2px solid rgba(0,168,204,.24);border-radius:14px;padding:11px 12px;
+      font-size:16px;color:var(--navy);background:#fbfeff;outline:none;
+      transition:.18s ease;font-family:inherit;
+    }
+    textarea{min-height:150px;resize:vertical;line-height:1.5}
+    input[type="text"]:focus, select:focus, textarea:focus{border-color:var(--sea);box-shadow:0 0 0 4px rgba(0,168,204,.14)}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
+    .reading-grid{display:grid;grid-template-columns:1fr;gap:12px}
+    .paragraph{
+      padding:14px;border-radius:16px;background:linear-gradient(180deg,#ffffff,#f0fcff);border:1px solid rgba(0,168,204,.16);
+    }
+    .paragraph b{color:#00759a}
+    .mini-table{width:100%;border-collapse:separate;border-spacing:0 8px;margin-top:12px}
+    .mini-table th{background:var(--deep);color:#fff;padding:10px;border-radius:12px 12px 0 0}
+    .mini-table td{background:#f2fbff;padding:10px;border-top:1px solid rgba(0,168,204,.12);border-bottom:1px solid rgba(0,168,204,.12)}
+    .email-card{border:2px solid rgba(0,168,204,.25);border-radius:16px;overflow:hidden;background:#fff;margin:10px 0 14px}
+    .email-row{display:grid;grid-template-columns:110px 1fr;border-bottom:1px solid rgba(0,168,204,.14)}
+    .email-row:last-child{border-bottom:0}
+    .email-row div{padding:10px 12px}.email-row div:first-child{background:#e8fbff;font-weight:900;color:var(--deep)}
+    .correct{border-color:#29b36b!important;background:#effff5!important}
+    .wrong{border-color:#ff5d5d!important;background:#fff1f1!important}
+    .result{font-weight:900;margin-top:8px;min-height:22px}
+    .sea-footer{text-align:center;padding:26px 10px 40px;color:#03506f;font-weight:700}
+    .toolbar{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+    .fish{position:fixed;z-index:0;font-size:42px;opacity:.15;pointer-events:none;animation:swim 18s linear infinite;top:18%}
+    .fish.two{top:58%;animation-duration:24s;animation-delay:-8s;font-size:34px}
+    @keyframes swim{from{left:-80px;transform:scaleX(1)}50%{transform:scaleX(1)}51%{transform:scaleX(-1)}to{left:105%;transform:scaleX(-1)}}
+    @media print{
+      body{background:white}.hero,.nav,.toolbar,.fish,.result{display:none}section,.top-card{box-shadow:none;border:1px solid #bbb;break-inside:avoid}.shell{margin:0 auto}.task{box-shadow:none}
+    }
+  </style>
+</head>
+<body>
+  <div class="fish">🐠</div><div class="fish two">🐟</div>
+  <header class="hero">
+    <h1>ОГЭ. Английский язык</h1>
+    <p>Вариант 8. Интерактивные задания с ярким морским оформлением</p>
+  </header>
+
+  <main class="shell">
+    <div class="top-card">
+      <div class="audio-box">
+        <strong>🎧 Аудирование. Файл должен лежать рядом с этой HTML-страницей и называться <code>8.mp3</code></strong>
+        <audio controls preload="metadata" src="8.mp3">Ваш браузер не поддерживает аудио.</audio>
+      </div>
+      <nav class="nav">
+        <a href="#listening">Аудирование</a>
+        <a href="#reading">Чтение</a>
+        <a href="#grammar">Грамматика и лексика</a>
+        <a href="#writing">Письмо</a>
+      </nav>
+      <div class="toolbar">
+        <button class="btn" onclick="checkAnswers()">Проверить ответы</button>
+        <button class="btn secondary" onclick="showAnswers()">Показать ответы</button>
+        <button class="btn light" onclick="clearAll()">Очистить</button>
+        <button class="btn light" onclick="window.print()">Печать / PDF</button>
+      </div>
+      <div id="totalResult" class="result"></div>
+    </div>
+
+    <section id="listening">
+      <h2>🌊 Раздел 1. Задания по аудированию</h2>
+      <div class="note">Прослушайте аудиозапись и выполните задания 1–11. В заданиях с выбором ответа отметьте один вариант. В заданиях с кратким ответом впишите слово или число.</div>
+
+      <div class="task" data-task="1"><div class="task-head"><span class="num">1</span> The visitors of the park are not allowed to...</div>
+        <label><input type="radio" name="q1" value="1"> walk on the lawns.</label>
+        <label><input type="radio" name="q1" value="2"> bring dogs to the park.</label>
+        <label><input type="radio" name="q1" value="3"> ride bicycles.</label>
+      </div>
+      <div class="task" data-task="2"><div class="task-head"><span class="num">2</span> How many tickets does Linda offer to Max?</div>
+        <label><input type="radio" name="q2" value="1"> One ticket.</label>
+        <label><input type="radio" name="q2" value="2"> Two tickets.</label>
+        <label><input type="radio" name="q2" value="3"> Four tickets.</label>
+      </div>
+      <div class="task" data-task="3"><div class="task-head"><span class="num">3</span> Jane went abroad because...</div>
+        <label><input type="radio" name="q3" value="1"> she wanted to study there.</label>
+        <label><input type="radio" name="q3" value="2"> she needed a holiday.</label>
+        <label><input type="radio" name="q3" value="3"> she was offered a job there.</label>
+      </div>
+      <div class="task" data-task="4"><div class="task-head"><span class="num">4</span> Where are Kate and Neil talking?</div>
+        <label><input type="radio" name="q4" value="1"> In a shop.</label>
+        <label><input type="radio" name="q4" value="2"> In a museum.</label>
+        <label><input type="radio" name="q4" value="3"> In a restaurant.</label>
+      </div>
+
+      <div class="task" data-task="5"><div class="task-head"><span class="num">5</span> Установите соответствие между говорящими A–E и рубриками 1–6.</div>
+        <ol>
+          <li>Keeping exotic pets</li><li>Watching animals</li><li>Helping our four-legged friends</li><li>Definitely worth seeing</li><li>Devising a meal for your pet</li><li>Saving endangered species</li>
+        </ol>
+        <div class="grid">
+          <label>Speaker A <select data-name="q5a"><option value="">Выбрать</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select></label>
+          <label>Speaker B <select data-name="q5b"><option value="">Выбрать</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select></label>
+          <label>Speaker C <select data-name="q5c"><option value="">Выбрать</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select></label>
+          <label>Speaker D <select data-name="q5d"><option value="">Выбрать</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select></label>
+          <label>Speaker E <select data-name="q5e"><option value="">Выбрать</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select></label>
+        </div>
+      </div>
+
+      <div class="task"><div class="task-head"><span class="num">6–11</span> Заполните пропуски по прослушанному интервью.</div>
+        <div class="grid">
+          <label>6. Age of the respondent <input data-name="q6" type="text" placeholder="Ваш ответ"></label>
+          <label>7. The job he/she would like to have <input data-name="q7" type="text"></label>
+          <label>8. The foreign language he/she speaks <input data-name="q8" type="text"></label>
+          <label>9. Regular sports activity <input data-name="q9" type="text"></label>
+          <label>10. Hobby <input data-name="q10" type="text"></label>
+          <label>11. Favourite food <input data-name="q11" type="text"></label>
+        </div>
+      </div>
+    </section>
+
+    <section id="reading">
+      <h2>🐚 Раздел 2. Задания по чтению</h2>
+      <div class="task" data-task="12"><div class="task-head"><span class="num">12</span> Установите соответствие между текстами A–F и вопросами 1–7. Один вопрос лишний.</div>
+        <ol>
+          <li>What do people celebrate at Maslenitsa?</li>
+          <li>How did the holiday get its name?</li>
+          <li>How do people decorate their houses for Maslenitsa?</li>
+          <li>Is it difficult to cook Maslenitsa pancakes?</li>
+          <li>Why are the pancakes round?</li>
+          <li>Why do people say Sorry at the end of the holiday?</li>
+          <li>Is Maslenitsa celebrated in other countries?</li>
+        </ol>
+        <div class="reading-grid">
+          <div class="paragraph"><b>A.</b> Pancakes are a very popular dish of Russian cuisine. People cook them not only for Maslenitsa but for their everyday meals too. All you need is some flour, milk, eggs, salt and sugar. Stir the eggs with sugar and add the milk. Then start adding the flour carefully, stirring the mixture. Now everything is ready for baking pancakes on the hot frying pan. Actually, the recipe for pancakes is not complicated at all, but you need some practice to make them well.</div>
+          <div class="paragraph"><b>B.</b> The circle has always been connected with the sun in Russian. According to old beliefs, it protected people from evil. At Maslenitsa, the Russians made pancakes, decorated the wheels of their carts, and danced the Khorovod. The round folk dance, the aim of all those ceremonies was to please the Sun so that it would be kinder to people. Another obvious reason for that is a very trivial one: most pans have always been made as a circle which is the most convenient geometrical shape.</div>
+          <div class="paragraph"><b>C.</b> Nowadays, people are getting more and more interested in learning about each other’s holidays and cultures. Every year since 2009 to 2022, the Russian pianist and producer Alexei Batalov organized a week-long celebration of Russian culture around London. The festival included various events from the world of music, art and cinema, along with a reception in the House of Commons. It was held at the same time as Maslenitsa and, of course, it included making and tasting pancakes.</div>
+          <div class="paragraph"><b>D.</b> Maslenitsa is one of the nicest holidays in Russia. It is connected with the tradition of baking pancakes. Hot, round, and golden pancakes look like little suns. It is believed that they help to warm up the frozen earth. In the old days, pancakes were cooked from buckwheat flour, which gave them a brown and golden colour. They were usually served with butter to make them taste soft and tender. Actually, the word Maslenitsa comes from maslo, which means butter in Russian.</div>
+          <div class="paragraph"><b>E.</b> Maslenitsa is celebrated for a whole week. The last day is Sunday and it is a really special day. According to tradition, people ask for forgiveness from all their close relatives and friends. They call each other, send messages and ask to forgive them for all the bad things they have done during the year. It sounds very sweet. Psychologists say that people should address their nearest and dearest more often and ask for forgiveness. It often helps to improve their relationship.</div>
+          <div class="paragraph"><b>F.</b> Maslenitsa is very popular with people of all ages. Originally Maslenitsa was a sad day to remember dead relatives. However, people needed more fun after the long and severe winter, which was over at last. They turned the sad holiday into the jolly Maslenitsa with pancakes. There was lots of entertainment: horseriding, snowball fighting, visiting relatives and eating pancakes. Now Maslenitsa is associated with the end of winter and the start of spring.</div>
+        </div>
+        <div class="grid">
+          <label>A <select data-name="q12a"><option value="">Выбрать</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option></select></label>
+          <label>B <select data-name="q12b"><option value="">Выбрать</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option></select></label>
+          <label>C <select data-name="q12c"><option value="">Выбрать</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option></select></label>
+          <label>D <select data-name="q12d"><option value="">Выбрать</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option></select></label>
+          <label>E <select data-name="q12e"><option value="">Выбрать</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option></select></label>
+          <label>F <select data-name="q12f"><option value="">Выбрать</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option></select></label>
+        </div>
+      </div>
+
+      <div class="task"><div class="task-head"><span class="num">13–19</span> Father’s Day. Прочитайте текст и выберите True, False или Not stated.</div>
+        <div class="paragraph">It was Father’s Day and we wanted to make that Sunday very special for our dad. So my brother Chris and I decided to cook breakfast for him ourselves. We prepared a meat pie, coffee and orange juice, then Mum helped us save the meal after our little cooking disaster. Dad was surprised and happy.</div>
+      </div>
+      <div class="task" data-task="13"><div class="task-head"><span class="num">13</span> Every year the father got a present from his children for Father’s Day.</div><label><input type="radio" name="q13" value="1"> True</label><label><input type="radio" name="q13" value="2"> False</label><label><input type="radio" name="q13" value="3"> Not stated</label></div>
+      <div class="task" data-task="14"><div class="task-head"><span class="num">14</span> The children cooked breakfast without their mother’s permission.</div><label><input type="radio" name="q14" value="1"> True</label><label><input type="radio" name="q14" value="2"> False</label><label><input type="radio" name="q14" value="3"> Not stated</label></div>
+      <div class="task" data-task="15"><div class="task-head"><span class="num">15</span> The children decided to cook a dish which was different from their father’s everyday breakfast.</div><label><input type="radio" name="q15" value="1"> True</label><label><input type="radio" name="q15" value="2"> False</label><label><input type="radio" name="q15" value="3"> Not stated</label></div>
+      <div class="task" data-task="16"><div class="task-head"><span class="num">16</span> The father usually had black coffee without sugar.</div><label><input type="radio" name="q16" value="1"> True</label><label><input type="radio" name="q16" value="2"> False</label><label><input type="radio" name="q16" value="3"> Not stated</label></div>
+      <div class="task" data-task="17"><div class="task-head"><span class="num">17</span> There was no instant coffee in the house.</div><label><input type="radio" name="q17" value="1"> True</label><label><input type="radio" name="q17" value="2"> False</label><label><input type="radio" name="q17" value="3"> Not stated</label></div>
+      <div class="task" data-task="18"><div class="task-head"><span class="num">18</span> The father’s office was very far from his house.</div><label><input type="radio" name="q18" value="1"> True</label><label><input type="radio" name="q18" value="2"> False</label><label><input type="radio" name="q18" value="3"> Not stated</label></div>
+      <div class="task" data-task="19"><div class="task-head"><span class="num">19</span> On Father’s Day the family had their breakfast at home.</div><label><input type="radio" name="q19" value="1"> True</label><label><input type="radio" name="q19" value="2"> False</label><label><input type="radio" name="q19" value="3"> Not stated</label></div>
+    </section>
+
+    <section id="grammar">
+      <h2>🪸 Раздел 3. Грамматика и лексика</h2>
+      <div class="note">Преобразуйте слова, напечатанные заглавными буквами справа, так, чтобы они грамматически и лексически соответствовали содержанию текста.</div>
+      <h3>Задания 20–28</h3>
+      <div class="task"><p>My aunt always kept saying that having exotic pets was not a good idea. She used to say that keeping snakes, frogs, or spiders at home was a crazy thing to do.</p>
+        <div class="grid">
+          <label>20. She used to say that keeping snakes, frogs, or spiders at home was a crazy thing to do. MOUSE → <input data-name="q20" type="text"></label>
+          <label>21. Yesterday, however, she did something completely out of _____ character. SHE → <input data-name="q21" type="text"></label>
+          <label>22. She brought home the _____ pet I have ever seen, an iguana. EXOTIC → <input data-name="q22" type="text"></label>
+          <label>23. My aunt placed the creature in an empty fish tank. The tank _____ with a sheet of glass, so the iguana could not escape. COVER → <input data-name="q23" type="text"></label>
+          <label>24. She explained that iguanas ate all sorts of insects. Naturally, there _____ no insects at home! BE → <input data-name="q24" type="text"></label>
+          <label>25. My aunt _____ to feed the new pet with frozen meat instead. TRY → <input data-name="q25" type="text"></label>
+          <label>26. To our surprise, the creature _____ to even taste the meat. NOT WANT → <input data-name="q26" type="text"></label>
+          <label>27. My aunt was really upset and asked me if I _____ buy some food for her pet in a pet shop. CAN → <input data-name="q27" type="text"></label>
+          <label>28. I agreed but when I looked at the iguana again, it _____ a green leaf. EAT → <input data-name="q28" type="text"></label>
+        </div>
+      </div>
+      <h3>Задания 29–34</h3>
+      <div class="task"><p>The Internet is a great invention that has changed the way we communicate forever.</p>
+        <div class="grid">
+          <label>29. Nowadays, if you want to exchange _____ with someone, it’s not important how far away the person is. INFORM → <input data-name="q29" type="text"></label>
+          <label>30. What _____ matters is whether he has access to the Internet or not. REAL → <input data-name="q30" type="text"></label>
+          <label>31. I know that when people started to experiment with the Internet, it required lots of _____. EQUIP → <input data-name="q31" type="text"></label>
+          <label>32. Computers and other devices were very large in size and it was _____ to carry them around. POSSIBLE → <input data-name="q32" type="text"></label>
+          <label>33. Now _____ devices have got smaller. ELECTRON → <input data-name="q33" type="text"></label>
+          <label>34. I’m not a _____ or even an engineer, but I’m sure there will be lots of new Internet-related inventions in the near future. SCIENCE → <input data-name="q34" type="text"></label>
+        </div>
+      </div>
+    </section>
+
+    <section id="writing">
+      <h2>⛵ Раздел 4. Задание по письму</h2>
+      <div class="note">Напишите электронное письмо объёмом 100–120 слов. Ответьте на 3 вопроса друга по переписке.</div>
+      <div class="email-card">
+        <div class="email-row"><div>From</div><div>John@mail.uk</div></div>
+        <div class="email-row"><div>To</div><div>Russian_friend@oge.ru</div></div>
+        <div class="email-row"><div>Subject</div><div>Playing sports</div></div>
+      </div>
+      <div class="paragraph">I feel upset as we’ve lost a basketball game. Though we lost, my brother said it was a great game anyway. He likes basketball, just like me...<br><br>...And what sports are popular with teenagers in Russia? What sports facilities does your school have? Do you enjoy your PE lessons or not, why?</div>
+      <label>Ваше письмо<textarea data-name="q35" placeholder="Dear John,&#10;&#10;Thank you for your email...&#10;&#10;Best wishes,&#10;..."></textarea></label>
+    </section>
+    <div class="sea-footer">🐬 Удачи на ОГЭ! Пусть ответы плывут легко, как лодочка по тёплому морю.</div>
+  </main>
+
+<script>
+const answers={
+ q1:'3',q2:'2',q3:'1',q4:'2',q5a:'4',q5b:'6',q5c:'2',q5d:'3',q5e:'1',
+ q6:'nineteen',q7:'pilot',q8:'japanese',q9:'athletics',q10:'gardening',q11:'fish',
+ q12a:'4',q12b:'5',q12c:'7',q12d:'2',q12e:'6',q12f:'1',
+ q13:'3',q14:'2',q15:'1',q16:'3',q17:'2',q18:'3',q19:'2',
+ q20:'mice',q21:'her',q22:'most exotic',q23:'was covered',q24:'were',q25:'tried',
+ q26:'did not want|didn’t want|didn\'t want',q27:'could',q28:'was eating',
+ q29:'information',q30:'really',q31:'equipment',q32:'impossible',q33:'electronic',q34:'scientist'
+};
+function norm(v){return (v||'').trim().toLowerCase().replace(/[’]/g,"'").replace(/\s+/g,' ')}
+function getValue(key){
+  const radio=document.querySelector(`input[name="${key}"]:checked`);
+  if(radio) return radio.value;
+  const el=document.querySelector(`[data-name="${key}"]`);
+  return el?el.value:'';
+}
+function markElement(key, ok){
+  const radios=document.querySelectorAll(`input[name="${key}"]`);
+  if(radios.length){
+    const box=radios[0].closest('.task'); box.classList.remove('correct','wrong'); box.classList.add(ok?'correct':'wrong'); return;
+  }
+  const el=document.querySelector(`[data-name="${key}"]`);
+  if(el){el.classList.remove('correct','wrong'); el.classList.add(ok?'correct':'wrong')}
+}
+function checkAnswers(){
+  let total=0, good=0;
+  Object.entries(answers).forEach(([key,ans])=>{
+    total++;
+    const user=norm(getValue(key));
+    const ok=ans.split('|').some(a=>norm(a)===user);
+    if(ok) good++;
+    markElement(key, ok);
+  });
+  document.getElementById('totalResult').textContent=`Проверено: ${good} из ${total} правильных. Задание 35 проверяется учителем.`;
+}
+function showAnswers(){
+  Object.entries(answers).forEach(([key,ans])=>{
+    const radios=document.querySelectorAll(`input[name="${key}"]`);
+    if(radios.length){radios.forEach(r=>{ if(r.value===ans.split('|')[0]) r.checked=true; }); return;}
+    const el=document.querySelector(`[data-name="${key}"]`);
+    if(el) el.value=ans.split('|')[0];
+  });
+  document.getElementById('totalResult').textContent='Ответы подставлены. Задание 35 пишется самостоятельно.';
+}
+function clearAll(){
+  document.querySelectorAll('input[type="radio"]').forEach(r=>r.checked=false);
+  document.querySelectorAll('input[type="text"], textarea').forEach(el=>{el.value=''; el.classList.remove('correct','wrong')});
+  document.querySelectorAll('select').forEach(el=>{el.value=''; el.classList.remove('correct','wrong')});
+  document.querySelectorAll('.task').forEach(el=>el.classList.remove('correct','wrong'));
+  document.getElementById('totalResult').textContent='';
+}
+</script>
+</body>
+</html>
